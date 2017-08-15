@@ -1,0 +1,5 @@
+services:
+   my_type_form:
+      class: AppBundle\Form\Type\ParticipantType
+      tags:
+         -  { name: form.type }

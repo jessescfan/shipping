@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Get your Bets!{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets 'bundles/app/css/*.css' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+    <div class="container-fluid">
+        {% block body %}{% endblock %}
+    </div>
+        {% block javascripts %}
+            {% javascripts
+                'bundles/app/js/jquery-3.2.1.js'
+                'bundles/app/js/*.js'
+            %}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
+    </body>
+</html>

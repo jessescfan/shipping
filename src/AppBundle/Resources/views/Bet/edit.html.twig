@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include "@App/top_nav.html.twig" %}
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Bets</h3>
+        </div>
+        {% include '@App/Bet/partials/form.html.twig' %}
+    </div>
+{% endblock %}
