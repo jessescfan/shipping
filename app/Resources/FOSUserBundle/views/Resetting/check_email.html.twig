@@ -1,0 +1,15 @@
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <div class="login-container">
+        <h1>Check your email to complete reset</h1>
+        <div class="login-help">
+            <a href="{{ path('fos_user_security_login') }}">Back to login</a>
+        </div>
+    </div>
+<p>
+{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+</p>
+{% endblock %}

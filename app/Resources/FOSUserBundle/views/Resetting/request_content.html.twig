@@ -1,0 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="login-container">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+            <h1>Request Reset for User</h1>
+            {{ form_errors(form) }}
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required="required" />
+            <div>
+                <input class="login login-submit" type="submit" value="Request Reset" />
+            </div>
+            <div class="login-help">
+                <a href="{{ path('fos_user_security_login') }}">Back to login</a>
+            </div>
+            {{ form_rest(form) }}
+    </form>
+</div>

@@ -1,0 +1,33 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% extends "@FOSUser/layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="login-container">
+        <h1>Register Your Account</h1>
+        {{ form_errors(form) }}
+        <form method="post" action="{{ path('fos_user_registration_register') }}"
+              class="fos_user_registration_register">
+            <label>
+                Email Address
+            </label>
+            {{ form_widget(form.email) }}
+
+            <label>
+                User Name
+            </label>
+            {{ form_widget(form.username) }}
+
+            {% for password in form.plainPassword %}
+            <label>
+                {% if loop.last %}Confirm {% endif %}Password
+            </label>
+                {{ form_widget(password) }}
+            {% endfor %}
+            <input type="submit" class="login login-submit" value="Register" />
+            <div class="login-help">
+                <a href="{{ path('fos_user_security_login') }}">Back to login</a>
+            </div>
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock fos_user_content %}

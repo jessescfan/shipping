@@ -8,7 +8,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
+ * @ORM\Entity()
  * @ORM\Table(name="users")
  */
 class User extends BaseUser
@@ -19,13 +19,6 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var
-     *
-     * @ORM\OneToMany(targetEntity="UserBet", mappedBy="user")
-     */
-    private $bets;
 
     /**
      * @var
@@ -47,26 +40,6 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
 
-        $this->bets = new ArrayCollection();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBets()
-    {
-        return $this->bets;
-    }
-
-    /**
-     * @param mixed $bets
-     * @return self
-     */
-    public function setBets($bets)
-    {
-        $this->bets = $bets;
-
-        return $this;
     }
 
     /**
